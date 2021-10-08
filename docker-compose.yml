@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  uwsgi:
+    build: ./app
+    ports:
+      - "8000:8000"
+  web:
+    build: ./nginx
+    links:
+      - uwsgi
+    ports:
+      - "8888:80"
+
